@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Friend Registry</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 20px;
+			background-color: #f2f2f2;
+		}
+
+		h1 {
+			text-align: center;
+			color: #333;
+		}
+
+		form {
+			max-width: 400px;
+			margin: 0 auto;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 4px;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		}
+
+		label {
+			display: block;
+			margin-top: 10px;
+			color: #555;
+		}
+
+		input,
+		textarea,
+		select {
+			width: 100%;
+			padding: 8px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			box-sizing: border-box;
+			margin-top: 5px;
+		}
+
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: white;
+			cursor: pointer;
+		}
+
+		textarea {
+			resize: vertical;
+		}
+
+		#interests {
+			height: 100px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Friend Registry</h1>
+	<form action="https://script.google.com/macros/s/AKfycbxEa8Lf7gk0Yjto0CHPn6Js9Vvtd3uV6iV2MCj/exec" method="POST">
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name" required>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email" required>
+
+		<label for="phone">Phone:</label>
+		<input type="tel" id="phone" name="phone" required>
+
+		<label for="birthday">Birthday:</label>
+		<input type="date" id="birthday" name="birthday" required>
+
+		<label for="address">Address:</label>
+		<textarea id="address" name="address"></textarea>
+
+		<label for="interests">Interests:</label>
+		<select id="interests" name="interests" multiple>
+			<option value="music">Music</option>
+			<option value="movies">Movies</option>
+			<option value="sports">Sports</option>
+			<option value="reading">Reading</option>
+		</select>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
