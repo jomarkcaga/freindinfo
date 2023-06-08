@@ -58,7 +58,7 @@
 </head>
 <body>
 	<h1>Friend Registry</h1>
-	<form action="https://script.google.com/macros/s/AKfycbyaziSLVL6Wccoj_vdgT8nEYL-F4LOGw1XsNEWBHsw_0BFMXceWsYGHFxgQG8tv-ICfkA/exec" method="POST">
+	<form>
 		<label for="name">Name:</label>
 		<input type="text" id="name" name="name" required>
 
@@ -72,17 +72,43 @@
 		<input type="date" id="birthday" name="birthday" required>
 
 		<label for="address">Address:</label>
-		<textarea id="address" name="address"></textarea>
+		<textarea id="address" name="address" required></textarea>
 
 		<label for="interests">Interests:</label>
-		<select id="interests" name="interests" multiple>
+		<select id="interests" name="interests" multiple required>
 			<option value="music">Music</option>
 			<option value="movies">Movies</option>
 			<option value="sports">Sports</option>
 			<option value="reading">Reading</option>
 		</select>
 
-		<input type="submit" value="Submit">
+		<input type="submit" value="Submit" id="sub">
+			</div>
+			<center><h1 id="msg"></h1></center>
 	</form>
+	<script>
+        let form = document.querySelector("form");
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.querySelector("#sub").value = "Submitting..";
+            let data = new FormData(form);
+            // Encode home address value
+            const homeAddress = document.querySelector("#address").value;
+            data.set("homeaddress", encodeURIComponent(homeAddress));
+            fetch('https://script.google.com/macros/s/AKfycbz2HtcDAP19EO__PkBz49C8sDPk85j0tcRtRCl19Vg9Qqcy03qhEN8vRY-BqVV61Z1u/exec', {
+                    method: 'POST',
+                    body: data
+                })
+                .then(res => res.text())
+                .then(data => {
+                    document.querySelector("#msg").innerHTML = data;
+                    document.querySelector("#sub").value = "Submit";
+                    // Hide the success message after 3 seconds
+                    setTimeout(() => {
+                        document.querySelector("#msg").innerHTML = "";
+                    }, 3000);
+                });
+        })
+    </script>
 </body>
 </html>
