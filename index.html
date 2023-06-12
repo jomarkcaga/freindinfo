@@ -10,6 +10,14 @@
 			background-color: #f2f2f2;
 		}
 
+		.home{
+			position: absolute;
+			top: 69%;
+			left: 50;
+			right: 25%;
+			transform: translate(-50%,-50%);
+		}
+
 		h1 {
 			text-align: center;
 			color: #333;
@@ -57,6 +65,7 @@
 	</style>
 </head>
 <body>
+<center><a href="https://jomarkcaga.github.io/Final-homepage/index.html" title="Homepage"><img src="home.png" style="width:50px;height:50px;"></a></center>
 	<h1>Friend Registry</h1>
 	<form>
 		<label for="name">Name:</label>
@@ -80,12 +89,17 @@
 			<option value="movies">Movies</option>
 			<option value="sports">Sports</option>
 			<option value="reading">Reading</option>
+			<option value="reading">Dance</option>
+			<option value="reading">Cooking</option>
+			<option value="reading">Travel</option>
+			<option value="reading">Exercise</option>
 		</select>
 
 		<input type="submit" value="Submit" id="sub">
 			</div>
 			<center><h1 id="msg"></h1></center>
 	</form>
+	
 	<script>
         let form = document.querySelector("form");
         form.addEventListener('submit', (e) => {
@@ -95,7 +109,7 @@
             // Encode home address value
             const homeAddress = document.querySelector("#address").value;
             data.set("homeaddress", encodeURIComponent(homeAddress));
-            fetch('https://script.google.com/macros/s/AKfycbz2HtcDAP19EO__PkBz49C8sDPk85j0tcRtRCl19Vg9Qqcy03qhEN8vRY-BqVV61Z1u/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbxE258IpcP69nm1GqngGuOEyvH-kzwnZ6sX3PMZGFKneLoffME4jz1wwrs8idGXtr6G/exec', {
                     method: 'POST',
                     body: data
                 })
